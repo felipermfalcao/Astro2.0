@@ -19,6 +19,7 @@ use Illuminate\Database\Query\Grammars\Grammar as QueryGrammar;
 use Illuminate\Database\Query\Processors\Processor;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Traits\Macroable;
 use LogicException;
 use PDO;
 use PDOStatement;
@@ -28,7 +29,8 @@ class Connection implements ConnectionInterface
 {
     use DetectsConcurrencyErrors,
         DetectsLostConnections,
-        Concerns\ManagesTransactions;
+        Concerns\ManagesTransactions,
+        Macroable;
 
     /**
      * The active PDO connection.
@@ -335,6 +337,33 @@ class Connection implements ConnectionInterface
     }
 
     /**
+     * Run a select statement and return the first column of the first row.
+     *
+     * @param  string  $query
+     * @param  array  $bindings
+     * @param  bool  $useReadPdo
+     * @return mixed
+     *
+     * @throws \Illuminate\Database\MultipleColumnsSelectedException
+     */
+    public function scalar($query, $bindings = [], $useReadPdo = true)
+    {
+        $record = $this->selectOne($query, $bindings, $useReadPdo);
+
+        if (is_null($record)) {
+            return null;
+        }
+
+        $record = (array) $record;
+
+        if (count($record) > 1) {
+            throw new MultipleColumnsSelectedException;
+        }
+
+        return reset($record);
+    }
+
+    /**
      * Run a select statement against the database.
      *
      * @param  string  $query
@@ -616,7 +645,11 @@ class Connection implements ConnectionInterface
             $statement->bindValue(
                 is_string($key) ? $key : $key + 1,
                 $value,
-                is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR
+                match (true) {
+                    is_int($value) => PDO::PARAM_INT,
+                    is_resource($value) => PDO::PARAM_LOB,
+                    default => PDO::PARAM_STR
+                },
             );
         }
     }
@@ -850,9 +883,7 @@ class Connection implements ConnectionInterface
      */
     public function listen(Closure $callback)
     {
-        if (isset($this->events)) {
-            $this->events->listen(Events\QueryExecuted::class, $callback);
-        }
+        $this->events?->listen(Events\QueryExecuted::class, $callback);
     }
 
     /**
@@ -863,18 +894,12 @@ class Connection implements ConnectionInterface
      */
     protected function fireConnectionEvent($event)
     {
-        if (! isset($this->events)) {
-            return;
-        }
-
-        switch ($event) {
-            case 'beganTransaction':
-                return $this->events->dispatch(new TransactionBeginning($this));
-            case 'committed':
-                return $this->events->dispatch(new TransactionCommitted($this));
-            case 'rollingBack':
-                return $this->events->dispatch(new TransactionRolledBack($this));
-        }
+        return $this->events?->dispatch(match ($event) {
+            'beganTransaction' => new TransactionBeginning($this),
+            'committed' => new TransactionCommitted($this),
+            'rollingBack' => new TransactionRolledBack($this),
+            default => null,
+        });
     }
 
     /**
@@ -885,9 +910,7 @@ class Connection implements ConnectionInterface
      */
     protected function event($event)
     {
-        if (isset($this->events)) {
-            $this->events->dispatch($event);
-        }
+        $this->events?->dispatch($event);
     }
 
     /**
@@ -1013,7 +1036,7 @@ class Connection implements ConnectionInterface
             $this->doctrineConnection = new DoctrineConnection(array_filter([
                 'pdo' => $this->getPdo(),
                 'dbname' => $this->getDatabaseName(),
-                'driver' => method_exists($driver, 'getName') ? $driver->getName() : null,
+                'driver' => $driver->getName(),
                 'serverVersion' => $this->getConfig('server_version'),
             ]), $driver);
 
