@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use GuzzleHttp\Client;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +15,9 @@ use GuzzleHttp\Client;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-route::get('teste', [function (){
-
-    $client = new Client([
-        'base_uri' => 'https://api.github.com/users/felipermfalcao',
-        'timeout'  => 2.0,
-    ]);
-    return json_decode($client->request('GET')->getBody())->login;
-}]);

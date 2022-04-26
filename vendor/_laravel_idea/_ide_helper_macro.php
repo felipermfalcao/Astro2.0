@@ -3,7 +3,7 @@
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
 
 namespace Illuminate\Http {
-
+    
     /**
      * @method array validate(array $rules, ...$params)
      * @method array validateWithBag(string $errorBag, array $rules, ...$params)
@@ -15,7 +15,7 @@ namespace Illuminate\Http {
 }
 
 namespace Illuminate\Support\Facades {
-
+    
     /**
      * @method void emailVerification()
      * @method void auth($options = [])

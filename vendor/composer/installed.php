@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd7a708643f3a90df312448a8d9c012eceb2d3186',
+        'reference' => '058dfaf1c691918e0336067aeaf12dd860415546',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -83,6 +83,15 @@
             'install_path' => __DIR__ . '/../egulias/email-validator',
             'aliases' => array(),
             'reference' => 'ee0db30118f661fb166bcffbf5d82032df484697',
+            'dev_requirement' => false,
+        ),
+        'fabpot/goutte' => array(
+            'pretty_version' => 'v4.0.2',
+            'version' => '4.0.2.0',
+            'type' => 'application',
+            'install_path' => __DIR__ . '/../fabpot/goutte',
+            'aliases' => array(),
+            'reference' => 'f51940fbe0db060bc4fc0b3f1d19bc4ff3054b17',
             'dev_requirement' => false,
         ),
         'facade/ignition-contracts' => array(
@@ -379,7 +388,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd7a708643f3a90df312448a8d9c012eceb2d3186',
+            'reference' => '058dfaf1c691918e0336067aeaf12dd860415546',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -558,6 +567,18 @@
             'aliases' => array(),
             'reference' => '4f7fd7836c6f332bb2933569e566a0d6c4cbed74',
             'dev_requirement' => true,
+        ),
+        'php-http/async-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
+        ),
+        'php-http/client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
         ),
         'phpdocumentor/reflection-common' => array(
             'pretty_version' => '2.2.0',
@@ -986,6 +1007,15 @@
             'reference' => '924d1ae878874ad0bb49f63b69a9af759a34ee78',
             'dev_requirement' => true,
         ),
+        'symfony/browser-kit' => array(
+            'pretty_version' => 'v6.0.3',
+            'version' => '6.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/browser-kit',
+            'aliases' => array(),
+            'reference' => '0ec66df981406fd2c9e41acbb526249bd18a0123',
+            'dev_requirement' => false,
+        ),
         'symfony/console' => array(
             'pretty_version' => 'v6.0.7',
             'version' => '6.0.7.0',
@@ -1011,6 +1041,15 @@
             'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
             'aliases' => array(),
             'reference' => '26954b3d62a6c5fd0ea8a2a00c0353a14978d05c',
+            'dev_requirement' => false,
+        ),
+        'symfony/dom-crawler' => array(
+            'pretty_version' => 'v6.0.6',
+            'version' => '6.0.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/dom-crawler',
+            'aliases' => array(),
+            'reference' => '9b4126901a6146c151d95af3868b1e0e30519ea6',
             'dev_requirement' => false,
         ),
         'symfony/error-handler' => array(
@@ -1054,6 +1093,30 @@
             'aliases' => array(),
             'reference' => '8661b74dbabc23223f38c9b99d3f8ade71170430',
             'dev_requirement' => false,
+        ),
+        'symfony/http-client' => array(
+            'pretty_version' => 'v6.0.7',
+            'version' => '6.0.7.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client',
+            'aliases' => array(),
+            'reference' => 'a7930c47248b9b57e9d0b8da100ffc1e031536dc',
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-contracts' => array(
+            'pretty_version' => 'v3.0.1',
+            'version' => '3.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client-contracts',
+            'aliases' => array(),
+            'reference' => 'f7525778c712be78ad5b6ca31f47fdcfd404c280',
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '3.0',
+            ),
         ),
         'symfony/http-foundation' => array(
             'pretty_version' => 'v6.0.7',
