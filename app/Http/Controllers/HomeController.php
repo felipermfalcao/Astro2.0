@@ -23,13 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $client = new Client([
-            'base_uri' => 'https://api.hgbrasil.com/weather?woeid=455830&key=2828a17d',
-            'timeout'  => 2.0,
+            'base_uri' => 'https://api.openweathermap.org/data/2.5/onecall?lat=-3.73&lon=-38.5&id=6320062&lang=pt_br&exclude=minutely&units=metric&appid=3be8dd33c3c2a76d04578be5e44015d7'
         ]);
-        $response = json_decode($client->request('GET')->getBody())->results;
+        $response = json_decode($client->request('GET')->getBody());
 
         //LUA
         $client = new ClientGoutte();
@@ -45,7 +44,20 @@ class HomeController extends Controller
 //
 //        echo $lua2[0];
 
+        //APOD NASA
+        $existeData = $request->query('data');
+        if (isset($existeData)){
+            $dataEscolhida = $request->query('data');
+        }
+        else {
+            $dataEscolhida = date("Y-m-d");
+        }
+        $clientNasa = new Client([
+            'base_uri' => "https://api.nasa.gov/planetary/apod?date=$dataEscolhida&api_key=XMGMg97ztxLJBQU1AwF5TNkLdfmcVNsW5oXrLdnn"
+        ]);
+        $apod = json_decode($clientNasa->request('GET')->getBody());
 
-        return view('home', ['response' => $response, 'response_lua1' => $response_lua1 , 'response_lua2' => $response_lua2,]);
+
+        return view('home', ['response' => $response, 'response_lua1' => $response_lua1 , 'response_lua2' => $response_lua2, 'apod' => $apod]);
     }
 }

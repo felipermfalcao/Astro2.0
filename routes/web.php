@@ -20,4 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home/{data?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/news/{site?}', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
+Route::get('/filmes', [App\Http\Controllers\FilmesSeriesController::class, 'index'])->name('filmes');
+Route::get('/satelites/{sat?}/{data?}', [App\Http\Controllers\SateliteController::class, 'index'])->name('satelite');
+Route::get('/futebol/{id?}', [App\Http\Controllers\FutebolController::class, 'index'])->name('futebol');
+
+Route::get('/teste/{data?}', [App\Http\Controllers\TesteController::class, 'index'])->name('teste');

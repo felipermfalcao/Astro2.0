@@ -36,3 +36,12 @@
     color: #fff;
 }
 
+.horizontal-scrollable > .row {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-md-4 {
+    display: inline-block;
+}
