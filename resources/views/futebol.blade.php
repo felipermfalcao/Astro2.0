@@ -13,7 +13,7 @@
 
                 @endphp
 
-            <div class="col-md-12">
+            <div class="col-md-12 text-center">
             @if($live == 1)
                     <h1 style="font-size: 30px;">{{$titulo}}</h1>
                 <div id="wg-api-football-livescore"
@@ -29,23 +29,21 @@
                 @if($id == 34 || $id == 1)
                         <form action="{{route('futebol')}}/{{$id}}" method="get">
                             <label for="anoC">Ano:</label>
-                            <select id="anoC" name="anoC">
-                                <option value="1994">1994</option
-                                <option value="1998">1998</option>
-                                <option value="2002">2002</option>
-                                <option value="2006" {{old('anoC') == $anoC ? 'selectec' : ''}}>2006</option>
-                                <option value="2010">2010</option>
-                                <option value="2014">2014</option>
-                                <option value="2018">2018</option>
-                                <option value="2022">2022</option>
-                                <option value="2026">2026</option>
-                                <option value="2030">2030</option>
-                                <option value="2034">2034</option>
-                                <option value="2036">2036</option>
-                                <option value="2040">2040</option>
+                            <input type="hidden" name="titulo" value="{{$titulo}}">
+                            <select id="anoC" name="anoC" class="form-select">
+                                <option value="1994" {{$anoC == '1994' ? 'selected' : ''}}>1994</option>
+                                <option value="1998" {{$anoC == '1998' ? 'selected' : ''}}>1998</option>
+                                <option value="2002" {{$anoC == '2002' ? 'selected' : ''}}>2002</option>
+                                <option value="2006" {{$anoC == '2006' ? 'selected' : ''}}>2006</option>
+                                <option value="2010" {{$anoC == '2010' ? 'selected' : ''}}>2010</option>
+                                <option value="2014" {{$anoC == '2014' ? 'selected' : ''}}>2014</option>
+                                <option value="2018" {{$anoC == '2018' ? 'selected' : ''}}>2018</option>
+                                <option value="2022" {{$anoC == '2022' ? 'selected' : ''}}>2022</option>
+                                <option value="2026" {{$anoC == '2026' ? 'selected' : ''}}>2026</option>
+                                <option value="2030" {{$anoC == '2030' ? 'selected' : ''}}>2030</option>
 
                             </select>
-                            <input type="submit">
+                            <input class="btn-primary mt-2 rounded" type="submit">
                         </form>
                 @endif
                 @include('_partial.futebol.jogos')
@@ -55,4 +53,10 @@
 
         </div>
     </div>
+
+    <style>
+        td{
+            font-size: 14px;
+        }
+    </style>
 @endsection

@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home/{data?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/eclipse', [App\Http\Controllers\EclipsesController::class, 'index'])->name('eclipse');
 Route::get('/news/{site?}', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
 Route::get('/filmes', [App\Http\Controllers\FilmesSeriesController::class, 'index'])->name('filmes');
 Route::get('/satelites/{sat?}/{data?}', [App\Http\Controllers\SateliteController::class, 'index'])->name('satelite');

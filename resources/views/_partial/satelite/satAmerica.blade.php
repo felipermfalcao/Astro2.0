@@ -1,8 +1,8 @@
 <div class="col-md-12 text-center pb-2">
 
     <form action="{{route('satelite')}}/{{$sat}}" method="get">
-        <input type="date" id="data" name="data" style="height: 50px; width: 200px;">
-        <input type="submit" style="height: 50px;">
+        <input type="date" class="form-control" id="data" name="data">
+        <input type="submit" class="btn-primary rounded mt-2">
     </form>
     <img class="slide img-fluid pt-3">
 </div>

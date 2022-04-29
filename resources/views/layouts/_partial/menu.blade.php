@@ -27,7 +27,11 @@
                     {{--                            @endif--}}
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}/?site=pocket">APOD</a>
+                        <a class="nav-link" href="{{ route('home') }}/home">APOD</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('eclipse') }}">Eclipses</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -106,22 +110,22 @@
                             Futebol
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('futebol') }}/99999?titulo=Jogos Agora">Jogos Agora</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/71?titulo=Serie A">Seria A</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/72?titulo=Serie B">Seria B</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/75?titulo=Serie C">Seria C</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/76?titulo=Serie D">Seria D</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/73?titulo=Copa do Brasil">Copa do Brasil</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/99999?titulo=Jogos%20Agora">Jogos Agora</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/71?titulo=Serie%20A">Seria A</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/72?titulo=Serie%20B">Seria B</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/75?titulo=Serie%20C">Seria C</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/76?titulo=Serie%20D">Seria D</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/73?titulo=Copa%20do%20Brasil">Copa do Brasil</a>
                             <a class="dropdown-item" href="{{ route('futebol') }}/609?titulo=Cearense">Cearense</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/620?titulo=Cearense B">Cearense B</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/612?titulo=Copa Nordeste">Copa Nordeste</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/620?titulo=Cearense%20B">Cearense B</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/612?titulo=Copa%20Nordeste">Copa Nordeste</a>
                             <a class="dropdown-item" href="{{ route('futebol') }}/13?titulo=Libertadores">Libertadores</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/11?titulo=Sul Americana">Sul Americana</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/2?titulo=Champions League">Champions League</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/15?titulo=Mundial Clubes">Mundial Clubes</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/9?titulo=Copa América">Copa América</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/34?titulo=Class. Copa Mundo">Class. Copa Mundo</a>
-                            <a class="dropdown-item" href="{{ route('futebol') }}/1?titulo=Copa Mundo">Copa Mundo</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/11?titulo=Sul%20Americana">Sul Americana</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/2?titulo=Champions%20League">Champions League</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/15?titulo=Mundial%20Clubes">Mundial Clubes</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/9?titulo=Copa%20América">Copa América</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/34?titulo=Class.%20Copa%20Mundo&anoC=2022">Class. Copa Mundo</a>
+                            <a class="dropdown-item" href="{{ route('futebol') }}/1?titulo=Copa%20Mundo&anoC=2022">Copa Mundo</a>
 
 
                         </div>
