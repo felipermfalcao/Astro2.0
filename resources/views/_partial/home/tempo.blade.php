@@ -4,6 +4,17 @@
 
             <div class="row">
                 <div class="col-md-8 order-2">
+                    @if(isset($response->alerts))
+                        @foreach($response->alerts as $alertas)
+                        <h3 class="m-0" style="color: #df4141;">Alerta do {{$alertas->sender_name}}</h3>
+                        <h5 class="m-0">{{$alertas->event}}</h5>
+                        <p class="m-0">Começa: <b>@php echo date("d/m/Y H:i:s", $alertas->start) @endphp</b></p>
+                        <p class="m-0">Termina: <b>@php echo date("d/m/Y H:i:s", $alertas->end) @endphp</b></p>
+                        <p class="mb-3">{{$alertas->description}}</p>
+                            <hr>
+                        @endforeach
+
+                    @endif
                     <h3 class="m-0">{{$response->timezone}} <b>{{$response->current->temp}}ºC</b></h3>
                     <h5 class="m-0"><b>{{$response->current->weather[0]->description}}</b></h5>
                     <p class="m-0"><b>@php echo date("d/m/Y H:i:s", $response->current->dt) @endphp</b></p>
@@ -47,7 +58,7 @@
                                         <div class="col-md-12">SDia: {{$dias->feels_like->day}}</div>
                                         <div class="col-md-12">SDia: {{$dias->feels_like->night}}</div>
                                         <div class="col-md-12">Prob. {{($dias->pop) * 100}}%</div>
-                                        <div class="col-md-12">{{$dias->rain}} mm</div>
+                                        <div class="col-md-12">{{isset($dias->rain) ? $dias->rain : ''}} mm</div>
                                     </div>
                                 </div>
                             @endforeach

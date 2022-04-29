@@ -15,9 +15,15 @@ class EclipsesController extends Controller
 
 
         $response = '';
+        $responseTime = '';
 //        foreach ($crawler->filter("[class='']") as $node) {
 //            $response[] = $node->children()->nodeValue;
 //        }
+        $responseTime = $crawler->filter("[class='bn__next_eclipse-cd'] > span")->each(function($node){
+            return [
+                'completo' => $node->html()
+            ];
+        });
 
         $response = $crawler->filter("[class='art__eclipse-nxt pdflexi']")->each(function($node){
             return [
@@ -29,6 +35,6 @@ class EclipsesController extends Controller
             ];
         });
 
-        return view('eclipse', ['response' => $response]);
+        return view('eclipse', ['response' => $response, 'responseTime' => $responseTime]);
     }
 }

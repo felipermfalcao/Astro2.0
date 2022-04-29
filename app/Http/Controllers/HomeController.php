@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $client = new Client([
+            //'base_uri' => 'https://api.openweathermap.org/data/2.5/onecall?lat=-23.54&lon=-46.63&id=6320062&lang=pt_br&exclude=minutely&units=metric&appid=3be8dd33c3c2a76d04578be5e44015d7'
             'base_uri' => 'https://api.openweathermap.org/data/2.5/onecall?lat=-3.73&lon=-38.5&id=6320062&lang=pt_br&exclude=minutely&units=metric&appid=3be8dd33c3c2a76d04578be5e44015d7'
         ]);
         $response = json_decode($client->request('GET')->getBody());
