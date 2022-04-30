@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 
+
 use Goutte\Client as ClientGoutte;
+use Google\Cloud\Translate\V2\TranslateClient;
 
 class TesteController extends Controller
 {
     public function index()
     {
-        $client = new ClientGoutte;
-        $crawler = $client->request('GET', 'https://www.painelglobal.com.br/');
-        $response = $crawler->html();
+        try {
+            $translate = new TranslateClient([
+                'keyFilePath' => 'json/gtranslate-astro20-f45855739aa5.json'
+            ]);
+            $result = $translate->translate('Hello world!', [
+                'target' => 'pt_br' // 'fr' is a ISO-639-1 code
+            ]);
+            echo $result['text'];
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
 
-
-        //$response = '';
-//        foreach ($crawler->filter("[class='']") as $node) {
-//            $response[] = $node->children()->nodeValue;
-//        }
-
-//        $response = $crawler->filter('table')->each(function($node){
-//            return [
-//                'completo' => $node->html(),
-//        ];
-//        });
-
-        return view('teste', ['response' => $response]);
+        return view('teste');
     }
 }

@@ -45,3 +45,13 @@
 .horizontal-scrollable > .row > .col-md-4 {
     display: inline-block;
 }
+
+.dropdown-menu
+{
+    background-color: #666;
+}
+.dropdown-item {
+    color: #fff;
+
+}
+

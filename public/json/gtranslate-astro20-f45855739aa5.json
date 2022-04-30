@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gtranslate-astro20",
+  "private_key_id": "f45855739aa58244338760a19fc46044e6434325",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDUDBcy+DdDKRy0\nRjIs+/1YtnNvD3NrPYyGbpMNBaq5jtrAbRO5FE3UGxcFJbLFKYLOHM+SlWFXisx3\nMD7RiWKeacbrUXXEe3DIdzCN2mq33cfZGlczdNti+uhRdWqzzo5lUZwUH7jfAhZ8\n2gdohuYdFLCGEoatJtjJm0PXRwpnbsiVjLJNcE9PF3QGvbPYyVJHLHAsHSwD6hC/\nHtZFYkRgWs2Y937xgJAWJO6/IgFVYiE016Fuuoah5JqzWxxWa/yMUgKGLCtSyh3X\n4oEyN+tjNs+EtOkq1b7bJm6jF/0JU+iiq/NOlCw8TFSDn9C/TsbYmR7dlmqLmamv\nnJxN/phLAgMBAAECggEAAINQ05HUs8y4+aolu44pm/jURsS0jzKmO7pHFTI47KJ4\ncbPx2M50htqfoEfW3Je4K4bquPaN9AryCvktG6b9AJ82LjeC888dc2DEzgW1oQJZ\nDv05MY6BiIrINinKRgLkoM8d+Kt0PA1tONU+tShgTyE3/27iE6sK2iMJcUD36EVd\naRrbEdU7Pde1vCHHJsO50CYjcfDjH/o0N97t6UBACqSpwc/6aV+6A8wR6ka3r6RS\ntvZa3h4RxtVKUo5Cx6yKFph4qI1IQnrAGrd6DhNrl0TfaS8jhupIdIhlB0aOUMvw\nCH0k6yPfFGIjRAugu94+pYsBJNHjxBm+dcCBTaNBjQKBgQD1ipnfC+kusKf4zqbc\ndvSV2bH3ZEFomZCumWY3Rs/6hO/V0HsNmwf7eqLTWZIyaqv4+5LaJcHLtoWmNJNd\nKlniMvDozAbVhs8aDHMviKkdRN19vGUVgwamqP0Qn3jHRAEJ68JBR2sw+dPvmoxT\nFSmCecYPTBnuWVzNgdi7VpmPzQKBgQDdFERUA0q4+Zk4bo1HPZt3SN2ZGOW7+pvP\nprGlnGDlC/LrLHX7EiDvUyfJM8xVQlAH04uvG64sYRxRpxMZQXGrEjvClQMpRGJB\nFtbDcrnGk4m2C5psQNxIIQAfLpsdk/5PVBiNtw9jcvsZSfRMsJv8+c6h7acyj4yL\nLY1tAs/AdwKBgArYr4lhzlAor5LXFhnhC1bfQfRKsnT7a5+62QASGbfYTXvldLoa\nIhUiyrSJXWLqwWQDQO5wAoqMKoU4B1ZzO3s5gtjVwmuGQ/nDmQb9g3LuitY2D0UO\n/6k3B87HLJ+oyl700iTuEbcdIhaQfihhY+8GkBA27WJRAj91v+wunCP1AoGAJ6TC\nu+37MEBR4XSxkNzTTAic9B8q0xKVbh8OLAxms6v424MVhPgzP7dBoyrOsVs6zqx4\nl+X2za58TYgQPK8nmu2iGbpu3q+Mju9xg4rHFXzPbP2Xq2HWHnkMdIr+9cbcC42g\n+YiiEctEi7xfOoFQ94Q0MYVUPhTPtwVsHugqKPECgYBVEH8s8JKBd3srEQYyUHIG\nt+4kF70Gj9fUzdbWykskFHgG3rRFxbpTPH1w+J8htWlfVfpQl4qF5G9GUhkUJtYy\nWKsRFh5MBrRf7Pmxon9KHjCW8dh+F8Q3DaL/2/YlfGW0kIsAa7FO5OBBw1RFfwh9\nIhLrQrh4pTjYnBrI1HgXlw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gtranslate-astro20@gtranslate-astro20.iam.gserviceaccount.com",
+  "client_id": "117255112382621480268",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gtranslate-astro20%40gtranslate-astro20.iam.gserviceaccount.com"
+}

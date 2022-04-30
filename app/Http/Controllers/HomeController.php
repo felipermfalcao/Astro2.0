@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Google\Cloud\Translate\V2\TranslateClient;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Goutte\Client as ClientGoutte;
@@ -58,7 +59,15 @@ class HomeController extends Controller
         ]);
         $apod = json_decode($clientNasa->request('GET')->getBody());
 
-
-        return view('home', ['response' => $response, 'response_lua1' => $response_lua1 , 'response_lua2' => $response_lua2, 'apod' => $apod]);
+        $translate = new TranslateClient([
+            'keyFilePath' => 'json/gtranslate-astro20-f45855739aa5.json'
+        ]);
+        $explanation_translate = $translate->translate("$apod->explanation", [
+            'target' => 'pt_br' // 'fr' is a ISO-639-1 code
+        ]);
+        $title_translate = $translate->translate("$apod->title", [
+            'target' => 'pt_br' // 'fr' is a ISO-639-1 code
+        ]);
+        return view('home', ['response' => $response, 'response_lua1' => $response_lua1 , 'response_lua2' => $response_lua2, 'apod' => $apod, 'expla_trans' => $explanation_translate, 'title_trans' => $title_translate]);
     }
 }

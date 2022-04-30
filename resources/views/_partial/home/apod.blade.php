@@ -10,7 +10,7 @@
                     </form>
                 </div>
 
-                <div class="col-md-12"><h2>{{$apod->title}}</h2></div>
+                <div class="col-md-12"><h2>{{$title_trans['text']}}</h2></div>
                 <div class="col-md-12"><h5>{{isset($apod->copyright)==true ? $apod->copyright : ''}}</h5></div>
                 <div class="col-md-12 pb-3"><a class="btn btn-primary" role="button" target="_blank" href="{{isset($apod->hdurl)==true ? $apod->hdurl : ''}}">Alta resolução</a></div>
                 <div class="col-md-12">
@@ -21,7 +21,7 @@
                     @endif
 
                 </div>
-                <div class="col-md-12 pt-3">{{$apod->explanation}}</div>
+                <div class="col-md-12 pt-3" style="font-size: 20px;">{{$expla_trans['text']}}</div>
 
             </div>
 

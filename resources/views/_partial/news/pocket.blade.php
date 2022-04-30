@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <style>
         h2{
-            color: #fff;
+            color: #999;
         }
         a{
             text-decoration: none;
