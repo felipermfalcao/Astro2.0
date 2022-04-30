@@ -17,7 +17,7 @@
 
         @include('layouts._partial.menu')
 
-        <main class="py-4">
+        <main class="" style="padding-top: 100px;">
             @yield('content')
         </main>
     </div>

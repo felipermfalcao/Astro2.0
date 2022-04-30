@@ -18,13 +18,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home/{data?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/eclipse', [App\Http\Controllers\EclipsesController::class, 'index'])->name('eclipse');
-Route::get('/news/{site?}', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
-Route::get('/filmes', [App\Http\Controllers\FilmesSeriesController::class, 'index'])->name('filmes');
-Route::get('/satelites/{sat?}/{data?}', [App\Http\Controllers\SateliteController::class, 'index'])->name('satelite');
-Route::get('/futebol/{id?}', [App\Http\Controllers\FutebolController::class, 'index'])->name('futebol');
+Route::middleware('auth')->get('/home/{data?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->get('/eclipse', [App\Http\Controllers\EclipsesController::class, 'index'])->name('eclipse');
+Route::middleware('auth')->get('/news/{site?}', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
+Route::middleware('auth')->get('/filmes', [App\Http\Controllers\FilmesSeriesController::class, 'index'])->name('filmes');
+Route::middleware('auth')->get('/satelites/{sat?}/{data?}', [App\Http\Controllers\SateliteController::class, 'index'])->name('satelite');
+Route::middleware('auth')->get('/futebol/{id?}', [App\Http\Controllers\FutebolController::class, 'index'])->name('futebol');
+Route::resource('/removebg', \App\Http\Controllers\RemoveBgController::class);
 
-Route::get('/teste/{data?}', [App\Http\Controllers\TesteController::class, 'index'])->name('teste');
+Route::middleware('auth')->get('/teste/{data?}', [App\Http\Controllers\TesteController::class, 'index'])->name('teste');
