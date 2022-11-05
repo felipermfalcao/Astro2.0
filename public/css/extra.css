@@ -55,3 +55,18 @@
 
 }
 
+.wg-table
+{
+    text-align: left !important;
+}
+
+.wg_logo {
+    width: 30px !important;
+}
+
+.wg_modal_close
+{
+    color: #fff !important;
+}
+
+
