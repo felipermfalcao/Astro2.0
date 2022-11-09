@@ -9,6 +9,8 @@
 
         @if($site == 'pocket')
             @include('_partial.news.pocket')
+        @elseif($site == 'flow')
+            @include('_partial.news.flow')
         @else
             @include('_partial.news.nerd')
         @endif

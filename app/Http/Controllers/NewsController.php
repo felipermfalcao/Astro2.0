@@ -32,9 +32,22 @@ class NewsController extends Controller
         $crawlerNerd = $client->request('GET', 'https://jovemnerd.com.br/nerdbunker/');
         $nerd = $crawlerNerd->filter("main")->html();
 
-            $nerd = str_replace('<img', '<img class="img-fluid"', $nerd);
+        $nerd = str_replace('<img', '<img class="img-fluid"', $nerd);
+
+        //FLOW GAMES
+        $crawlerFlow = $client->request('GET', 'https://flowgames.gg/noticias/');
+        $crawlerFlow2 = $client->request('GET', 'https://flowgames.gg/noticias/page/2/');
+        $crawlerFlow3 = $client->request('GET', 'https://flowgames.gg/noticias/page/3/');
+
+        $flow = $crawlerFlow->filter("[class='list-post-home']")->html();
+        $flow2 = $crawlerFlow2->filter("[class='list-post-home']")->html();
+        $flow3 = $crawlerFlow3->filter("[class='list-post-home']")->html();
+
+        $flow = str_replace('<img', '<img class="img-fluid"', $flow);
+        $flow2 = str_replace('<img', '<img class="img-fluid"', $flow2);
+        $flow3 = str_replace('<img', '<img class="img-fluid"', $flow3);
 
 
-        return view('news', ['pocket'=>$pocket, 'pocket2'=>$pocket2, 'pocket3'=>$pocket3, 'pocket4'=>$pocket4, 'site'=> $site, 'nerd'=>$nerd]);
+        return view('news', ['pocket'=>$pocket, 'pocket2'=>$pocket2, 'pocket3'=>$pocket3, 'pocket4'=>$pocket4, 'site'=> $site, 'nerd'=>$nerd, 'flow'=>$flow, 'flow2'=>$flow2, 'flow3'=>$flow3]);
     }
 }
