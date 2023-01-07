@@ -14,4 +14,4 @@
 
 ## Sobre o projeto
 
-Página pessoal para consulta de informações diversas, testes de códigos e estudos.
+Página pessoal em Laravel e Bootstrap para consulta de informações diversas, testes de códigos e estudos.
